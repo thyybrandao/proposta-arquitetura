@@ -113,3 +113,43 @@ yarn dev
 - Mantém o código isolado e organizado.
 - Facilita a manutenção e personalização por região.
 - Permite reaproveitar o que for comum e sobrescrever o que for específico.
+
+---
+
+#### ✅ Por que usar o React Hook Form?
+
+- Tem melhor performance e evita re-renders desnecessários.
+- Possui API enxuta e focada em produtividade.
+- Integra-se facilmente com bibliotecas de UI (como MUI, AntD, etc.).
+- Suporta validação nativa e com bibliotecas como Zod e Yup.
+- É ideal para projetos modernos com foco em performance e escalabilidade.
+
+---
+
+#### ✅ Por que usar o Zod?
+
+- Gera automaticamente os tipos TypeScript a partir do schema.
+- Tem sintaxe declarativa, funcional e moderna.
+- É mais leve que outras bibliotecas de validação (como o Yup).
+- Integra-se perfeitamente com ferramentas como React Hook Form e tRPC.
+- É ideal para stacks modernas baseadas em TypeScript.
+
+---
+
+#### ✅ Por que usar o Jest?
+
+- É o framework de testes mais popular no ecossistema React.
+- Permite testar funções, hooks, componentes e lógica de negócio.
+- Tem suporte nativo a mocks, spies e cobertura de código.
+- Integra-se facilmente com TypeScript e bibliotecas como Testing Library.
+- Ideal para testes unitários e de integração leves e rápidos.
+
+---
+
+#### ✅ Por que usar o Cypress?
+
+- Permite testes end-to-end com uma interface visual e intuitiva.
+- Simula o comportamento real do usuário no navegador.
+- Possui recarregamento automático, timelapse e debug visual.
+- Ideal para garantir que o fluxo completo da aplicação funciona.
+- Ótimo para validar jornadas do usuário em ambientes reais.
