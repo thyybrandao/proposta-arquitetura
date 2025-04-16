@@ -2,7 +2,7 @@ import { headers } from "next/headers";
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 import { getLocale } from "./utils/host";
-import { urlApi } from "./constants/url_api";
+import { urlApi } from "./shared/constants/url_api";
 
 export async function middleware(request: NextRequest) {
   const header = (await headers()).get("host");

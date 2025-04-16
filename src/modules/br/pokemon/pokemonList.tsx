@@ -5,7 +5,7 @@ import { IPokemonResponse } from "@/repositories/strategies/br/@types/pokemon";
 import Image from "next/image";
 import React, { useState } from "react";
 import PokemonRepository from "@/repositories/strategies/br/pokemon";
-import { useMyPokemonStore } from "@/stores/myPokemons";
+import { useMyPokemonStore } from "@/shared/stores/myPokemons";
 
 interface IProps {
   locale: string;

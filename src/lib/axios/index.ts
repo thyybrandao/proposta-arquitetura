@@ -1,4 +1,4 @@
-import { urlApi } from "@/constants/url_api";
+import { urlApi } from "@/shared/constants/url_api";
 import axios, { AxiosInstance } from "axios";
 
 export class ApiInstance {
