@@ -1,4 +1,6 @@
+import { IPokemon, IPokemonResponse } from "@/repositories/strategies/br/@types/pokemon";
+
 export interface IPokemonStrategy {
-  findAll(): Promise<any>;
-  findOne(id:number): Promise<any>;
+  findAll(): Promise<IPokemonResponse>;
+  findOne(id: number): Promise<IPokemon>;
 }

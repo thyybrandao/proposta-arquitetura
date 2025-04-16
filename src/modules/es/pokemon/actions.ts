@@ -4,8 +4,9 @@ import {
   IPokemon,
   IPokemonResponse,
 } from "@/repositories/strategies/br/@types/pokemon";
-import { PokemonRepository } from "@/repositories/strategies/br/pokemon";
-import { IAuthStrategy } from "@/shared/@types/pokemonStrategy";
+import PokemonRepository from "@/repositories/strategies/es/pokemon";
+
+
 
 export async function findAllPokemon(
   repository: PokemonRepository

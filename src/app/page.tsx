@@ -5,7 +5,7 @@ import { getLocale } from "@/utils/host";
 import dynamic from "next/dynamic";
 
 import { headers } from "next/headers";
-import { Suspense } from "react";
+
 
 export default async function Home() {
   const header = (await headers()).get("host");

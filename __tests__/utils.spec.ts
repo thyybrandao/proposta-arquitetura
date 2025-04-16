@@ -1,8 +1,4 @@
-/**
- * @jest-environment jsdom
- */
-
-import { getLocale } from "../src/utils/host"; // Ajuste o caminho conforme necessário
+import { getLocale } from "../src/utils/host";
 
 describe("getLocale", () => {
   it("should extract the locale from a host string without a port", () => {

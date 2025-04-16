@@ -16,10 +16,11 @@ export default class PokemonRepository implements IPokemonStrategy {
   async findOne(id: number): Promise<IPokemon> {
     try {
       const response = await this.api.get<IPokemon>(`pokemon/${id}/`);
-      console.log("response", response);
+
       return response.data;
     } catch (error) {
-      throw error;
+      console.error(error)
+      throw Error("Erro ao buscar pokemons");
     }
   }
 
@@ -30,7 +31,8 @@ export default class PokemonRepository implements IPokemonStrategy {
       );
       return response.data;
     } catch (error) {
-      throw error;
+      console.error(error);
+      throw Error("Erro ao buscar pokemons");
     }
   }
 }
