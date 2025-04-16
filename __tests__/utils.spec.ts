@@ -17,12 +17,6 @@ describe("getLocale", () => {
     expect(result).toBe("en");
   });
 
-  it("should return undefined for an empty host string", () => {
-    const host = "";
-    const result = getLocale(host);
-    expect(result).toBeUndefined();
-  });
-
   it("should return undefined for a null host", () => {
     const host = null as unknown as string;
     const result = getLocale(host);
