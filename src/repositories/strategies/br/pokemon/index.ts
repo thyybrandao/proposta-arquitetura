@@ -4,6 +4,7 @@ import {
   IPokemonResponse,
 } from "@/repositories/strategies/br/@types/pokemon";
 import { IPokemonStrategy } from "@/shared/@types/pokemonStrategy";
+import { handleAxiosErrors } from "@/utils/axiosErrors";
 import { AxiosInstance } from "axios";
 
 export default class PokemonRepository implements IPokemonStrategy {
@@ -19,8 +20,7 @@ export default class PokemonRepository implements IPokemonStrategy {
 
       return response.data;
     } catch (error) {
-      console.error(error)
-      throw Error("Erro ao buscar pokemons");
+      handleAxiosErrors(error);
     }
   }
 
@@ -31,8 +31,7 @@ export default class PokemonRepository implements IPokemonStrategy {
       );
       return response.data;
     } catch (error) {
-      console.error(error);
-      throw Error("Erro ao buscar pokemons");
+      handleAxiosErrors(error);
     }
   }
 }
