@@ -1,5 +1,19 @@
+/**
+ * Handles errors originating from Axios requests and throws a custom exception
+ * based on the type of error encountered.
+ *
+ * @param error - The error object, which can be of any type.
+ * 
+ * @throws {CustomException} If the error is an AxiosError, a custom exception
+ * is thrown with a specific message and status code depending on the error type:
+ * - If the error has a response, the status code and message from the response are used.
+ * - If the error has a request but no response, a default message and status code are used.
+ * - If the error is an AxiosError but does not match the above cases, a generic message is used.
+ * - If the error is not an AxiosError, a generic internal server error is thrown.
+ */
 import { CustomException } from "@/shared/exceptions/customException";
 import { AxiosError } from "axios";
+
 
 export function handleAxiosErrors(error: unknown): never {
   if (error instanceof AxiosError) {
