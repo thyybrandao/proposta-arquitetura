@@ -75,7 +75,79 @@ yarn dev
 | src/shared/styles           | Estilos globais ou temas.                                                                                                                         |
 | src/shared/stores           | Gerenciamento de estado global (ex: Zustand, Redux, etc).                                                                                         |
 | src/shared/utils            | Funções auxiliares genéricas.                                                                                                                     |
-| src/middleware.ts           | Middleware do Next.js, utilizado para lógica como roteamento por subdomínio, autenticação ou injeção de tenant.                                  |
+| src/middleware.ts           | Middleware do Next.js, utilizado para lógica como roteamento por subdomínio, autenticação ou injeção de tenant.  
+
+---
+
+## 🧭 Atalhos de Importação (`tsconfig paths`)
+
+Para facilitar e padronizar os imports no projeto, utilizamos **aliases** definidos no `tsconfig.json`. Isso evita caminhos relativos longos e melhora a organização e legibilidade do código.
+
+```json
+"paths": {
+  "@/*": ["./src/*", "./cypress", "./cypress.config.ts"],
+  "@/assets/*": ["./src/assets/*"],
+  "@/components/*": ["./src/components/*"],
+  "@/lib/*": ["./src/lib/*"],
+  "@/modules/*": ["./src/modules/*"],
+  "@/repositories/*": ["./src/repositories/*"],
+  "@/shared/*": ["./src/shared/*"],
+  "@/utils/*": ["./src/utils/*"]
+} 
+```
+
+| Alias             | Caminho real           | Descrição                                                                 |
+|-------------------|------------------------|---------------------------------------------------------------------------|
+| `@/`             | `src/`                | Acesso genérico à raiz da pasta `src/`. Também inclui arquivos de configuração e testes. |
+| `@/assets`       | `src/assets/`         | Imagens, ícones, fontes e demais recursos estáticos.                     |
+| `@/components`   | `src/components/`     | Componentes reutilizáveis, incluindo `customs` e `ui`.                   |
+| `@/lib`          | `src/lib/`            | SDKs, helpers externos e configurações globais (ex: `i18n`, `axios`).    |
+| `@/modules`      | `src/modules/`        | Módulos de negócio por país/tenant, com lógica e componentes próprios.   |
+| `@/repositories` | `src/repositories/`   | Acesso a dados externos, APIs e estratégias específicas por país.        |
+| `@/shared`       | `src/shared/`         | Código e recursos compartilhados entre todos os países.                 |
+| `@/utils`        | `src/utils/`          | Funções auxiliares genéricas reutilizáveis em qualquer parte do projeto. |
+
+---
+
+## 🧩 Design Patterns Utilizados
+
+Para manter o projeto organizado, escalável e de fácil manutenção, aplicamos alguns **design patterns** no código, em especial o **Strategy Pattern** e o **Mediator Pattern**.
+
+### 🧠 Strategy Pattern
+
+Usado para separar **regras de negócio específicas por país (tenant)**.  
+Cada país pode ter uma implementação diferente de determinada funcionalidade (como frete, descontos, tributos, exibição de conteúdo, etc), sem afetar os demais.
+
+#### ✅ Benefícios:
+- Facilita a substituição ou extensão de regras sem alterar o código principal.
+- Permite isolar lógica específica de cada país.
+- Ideal para ambientes multi-tenant e internacionalização.
+
+
+### 🧠 Mediator Pattern
+
+No contexto de aplicações React, o Mediator Pattern é utilizado para **promover a comunicação entre componentes sem que eles estejam diretamente acoplados entre si**.
+
+Em vez de um componente pai passar props para vários níveis de filhos (*prop drilling*), ou de componentes irmãos se comunicarem diretamente, usamos um intermediador — que pode ser:
+
+- Um store de estado global (como Zustand);
+- Um event bus customizado;
+- Um contexto bem isolado;
+- Ou até mesmo um pub/sub simples.
+
+#### ✅ Benefícios:
+- Reduz o acoplamento entre componentes.
+- Melhora a escalabilidade da aplicação.
+- Facilita o reaproveitamento e testes dos componentes.
+- Evita que alterações em um componente impactem diretamente outros.
+
+#### 📌 Exemplos práticos:
+- Um componente de modal que pode ser aberto a partir de qualquer parte da aplicação.
+- Um sistema de notificações (toast) que escuta eventos globais.
+- Um formulário complexo dividido em múltiplos componentes que se coordenam via store (ex: Zustand).
+- Um carrinho de compras acessível por componentes distintos.
+
+---
 
 
 ## ❓ FAQ

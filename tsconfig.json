@@ -25,7 +25,14 @@
       }
     ],
     "paths": {
-      "@/*": ["./src/*", "./cypress", "./cypress.config.ts"]
+      "@/*": ["./src/*", "./cypress", "./cypress.config.ts"],
+      "@/assets/*": ["./src/assets/*",],
+      "@/components/*": ["./src/components/*",],
+      "@/lib/*": ["./src/lib/*",],
+      "@/modules/*": ["./src/modules/*",],
+      "@/repositories/*": ["./src/repositories/*",],
+      "@/shared/*": ["./src/shared/*",],
+      "@/utils/*": ["./src/utils/*",]
     }
   },
   "include": [
